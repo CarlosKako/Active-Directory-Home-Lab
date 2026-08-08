@@ -62,7 +62,39 @@ During this project, I performed the following tasks:
 ## 📚 Lab Documentation
 
 ### 1. Domain Controller & Network Setup
-Coming soon.
+
+I created the foundational Azure infrastructure for the Active Directory environment by deploying two virtual machines on the same private virtual network:
+
+- **DC-1:** Windows Server 2022 virtual machine used as the Domain Controller
+- **Client-1:** Windows 10 Pro virtual machine used as the domain client
+
+#### Azure Network Configuration
+
+I created a Resource Group and Virtual Network (VNet) in Microsoft Azure to keep the lab resources organized and allow DC-1 and Client-1 to communicate over the same private network.
+
+#### Domain Controller Configuration
+
+I deployed DC-1 using Windows Server 2022 and configured its private IP address as static.
+
+Using a static private IP is important for a Domain Controller because client devices rely on the Domain Controller for services such as DNS and authentication. If the Domain Controller's IP address changed, clients could lose connectivity to these services.
+
+#### Client Configuration
+
+I deployed Client-1 using Windows 10 Pro within the same Resource Group and Virtual Network as DC-1.
+
+I then configured Client-1's DNS settings to use the private IP address of DC-1 as its DNS server. This allows the client to locate the Domain Controller and prepares the machine to join the Active Directory domain.
+
+#### Connectivity Testing
+
+After applying the DNS configuration and restarting Client-1, I connected to the client through Remote Desktop and verified network connectivity with DC-1.
+
+I used tools such as:
+
+- `ping`
+- `ipconfig`
+- PowerShell
+
+Successful communication between the two machines confirmed that the virtual network and DNS configuration were functioning correctly.
 
 ### 2. Active Directory Deployment & Domain Join
 Coming soon.
