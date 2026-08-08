@@ -107,8 +107,47 @@ I used tools such as:
 
 Successful communication between the two machines confirmed that the virtual network and DNS configuration were functioning correctly.
 
-### 2. Active Directory Deployment & Domain Join
-Coming soon.
+### 2. ### 2. Active Directory Deployment & Domain Join
+
+After configuring the network environment, I installed Active Directory Domain Services (AD DS) on DC-1 and promoted the server to a Domain Controller.
+
+#### Installing Active Directory Domain Services
+
+Using Server Manager on DC-1, I added the **Active Directory Domain Services** server role through the Add Roles and Features wizard.
+
+After the installation completed, I promoted DC-1 to a Domain Controller and created a new Active Directory forest.
+
+**Domain:** `mydomain.com`
+
+This established DC-1 as the Domain Controller responsible for centralized authentication and domain management within the lab environment.
+
+#### Organizational Unit Configuration
+
+Using Active Directory Users and Computers (ADUC), I created Organizational Units to organize accounts based on their purpose:
+
+- `_EMPLOYEES` — standard domain user accounts
+- `_ADMINS` — privileged administrator accounts
+
+Organizational Units provide a structured way to manage users and allow policies and permissions to be applied to specific groups of objects.
+
+#### Domain Administrator Account
+
+I created a dedicated administrative user inside the `_ADMINS` Organizational Unit and added the account to the **Domain Admins** security group.
+
+I then used the domain administrator account for subsequent domain-level administrative tasks instead of relying on the original local administrator account.
+
+#### Joining Client-1 to the Domain
+
+After Active Directory was configured, I joined Client-1 to `mydomain.com`.
+
+From Client-1, I opened System Properties, changed the computer's membership from a workgroup to the domain, and authenticated using domain administrator credentials.
+
+After restarting Client-1, I successfully logged into the computer using a domain account, confirming that:
+
+- Client-1 could locate DC-1 through DNS
+- Domain authentication was functioning
+- Client-1 was successfully joined to Active Directory
+- The Domain Controller could centrally manage the client computer
 
 ### 3. User & Organizational Unit Management
 Coming soon.
