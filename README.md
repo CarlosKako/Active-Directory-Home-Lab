@@ -107,7 +107,9 @@ I used tools such as:
 
 Successful communication between the two machines confirmed that the virtual network and DNS configuration were functioning correctly.
 
-### 2. ### 2. Active Directory Deployment & Domain Join
+### 2. Active Directory Deployment & Domain Join
+
+![Active Directory Domain Services Installation](ad-ds-installation.png)
 
 After configuring the network environment, I installed Active Directory Domain Services (AD DS) on DC-1 and promoted the server to a Domain Controller.
 
@@ -121,6 +123,8 @@ After the installation completed, I promoted DC-1 to a Domain Controller and cre
 
 This established DC-1 as the Domain Controller responsible for centralized authentication and domain management within the lab environment.
 
+![Domain Controller Promotion](domain-controller-promotion.png)
+
 #### Organizational Unit Configuration
 
 Using Active Directory Users and Computers (ADUC), I created Organizational Units to organize accounts based on their purpose:
@@ -130,11 +134,15 @@ Using Active Directory Users and Computers (ADUC), I created Organizational Unit
 
 Organizational Units provide a structured way to manage users and allow policies and permissions to be applied to specific groups of objects.
 
+![Active Directory Organizational Units](active-directory-ou-structure.png)
+
 #### Domain Administrator Account
 
 I created a dedicated administrative user inside the `_ADMINS` Organizational Unit and added the account to the **Domain Admins** security group.
 
 I then used the domain administrator account for subsequent domain-level administrative tasks instead of relying on the original local administrator account.
+
+![Domain Administrator Account](domain-admin-account.png)
 
 #### Joining Client-1 to the Domain
 
@@ -148,6 +156,8 @@ After restarting Client-1, I successfully logged into the computer using a domai
 - Domain authentication was functioning
 - Client-1 was successfully joined to Active Directory
 - The Domain Controller could centrally manage the client computer
+
+![Successful Domain Join](client-domain-join.png)
 
 ### 3. User & Organizational Unit Management
 Coming soon.
