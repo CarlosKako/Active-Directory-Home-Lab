@@ -71,7 +71,11 @@ I created the foundational Azure infrastructure for the Active Directory environ
 #### Azure Network Configuration
 
 I created a Resource Group and Virtual Network (VNet) in Microsoft Azure to keep the lab resources organized and allow DC-1 and Client-1 to communicate over the same private network.
+#### Azure Virtual Machine Environment
 
+The lab environment was deployed in Microsoft Azure using two virtual machines on the same virtual network.
+
+![Azure Virtual Machine Environment](azure-vm-environment.png)
 #### Domain Controller Configuration
 
 I deployed DC-1 using Windows Server 2022 and configured its private IP address as static.
@@ -84,9 +88,16 @@ I deployed Client-1 using Windows 10 Pro within the same Resource Group and Virt
 
 I then configured Client-1's DNS settings to use the private IP address of DC-1 as its DNS server. This allows the client to locate the Domain Controller and prepares the machine to join the Active Directory domain.
 
-#### Connectivity Testing
 
 After applying the DNS configuration and restarting Client-1, I connected to the client through Remote Desktop and verified network connectivity with DC-1.
+
+#### Network Connectivity Verification
+
+I verified Client-1's network configuration using `ipconfig /all` and tested connectivity to DC-1 using `ping`.
+
+The successful ping test confirmed communication between the client and Domain Controller with 0% packet loss.
+
+![Client-1 Network Connectivity](client1-network-connectivity.png)
 
 I used tools such as:
 
