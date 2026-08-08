@@ -1,9 +1,7 @@
 
-
 # Active Directory Home Lab
 
 ## 📌 Overview
-
 This project demonstrates the deployment and administration of a Windows Active Directory environment in a virtualized lab.
 
 The lab simulates common tasks performed by IT Support and System Administration professionals, including configuring a domain controller, creating and managing users, joining client computers to a domain, configuring Group Policy, managing account lockouts, setting file permissions, and enabling Remote Desktop access.
