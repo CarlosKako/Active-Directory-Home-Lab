@@ -293,7 +293,56 @@ This confirmed that Group Policy was being centrally applied from the Active Dir
 * Group Policy troubleshooting and verification
 
 ### 6. File Shares & Permissions
-Coming soon.
+## 6. File Shares & Permissions
+
+After configuring Active Directory and Group Policy, I created and managed network file shares to practice centralized file access and permission management in a Windows domain environment.
+
+#### Network File Share Configuration
+
+On DC-1, I configured multiple shared folders with different levels of access:
+
+* **Share_Read** — read-only access for authorized domain users
+* **Share_Write** — read and write access for authorized domain users
+* **Admins_Only** — restricted access for administrative users
+
+This configuration demonstrates how network resources can be centrally hosted while controlling what users are allowed to access and modify.
+
+![File Share Configuration](file-share-configuration.png)
+
+#### Share Permission Testing
+
+From Client-1, I accessed the shared folders over the network and tested the permissions assigned to the domain user.
+
+The user was able to create files inside **Share_Write**, while attempts to modify content inside **Share_Read** were denied.
+
+This verified that the configured permissions were correctly restricting user actions based on the intended access level.
+
+![Share Permission Testing](share-permission-testing.png)
+
+#### Security Group-Based Access
+
+I also configured a restricted **Finance** network share to demonstrate role-based access using Active Directory security groups.
+
+Initially, the domain user did not have permission to access the Finance share.
+
+![Finance Access Denied](finance-access-denied.png)
+
+Access was then granted through membership in the **Finance_Team** security group. After the appropriate permissions were applied, the user was able to access the Finance share and its contents.
+
+![Finance Access Granted](finance-access-granted.png)
+
+This demonstrates how Active Directory security groups can be used to manage access to organizational resources without assigning permissions individually to every user.
+
+#### Skills Demonstrated
+
+* Windows network file sharing
+* Share and NTFS permission management
+* Active Directory security groups
+* Role-based access control
+* Network resource administration
+* Permission troubleshooting and verification
+* Principle of least privilege
+* Windows Server file share administration
 
 ---
 
