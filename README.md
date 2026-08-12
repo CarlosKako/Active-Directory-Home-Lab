@@ -160,7 +160,38 @@ After restarting Client-1, I successfully logged into the computer using a domai
 ![Successful Domain Join](client-domain-join.png)
 
 ### 3. User & Organizational Unit Management
-Coming soon.
+After deploying Active Directory, I organized domain users and administrative accounts using Organizational Units (OUs) in Active Directory Users and Computers (ADUC).
+
+#### Organizational Unit Structure
+
+I created separate Organizational Units to organize accounts based on their roles:
+
+* **_EMPLOYEES** — standard domain user accounts
+* **_ADMINS** — privileged administrative accounts
+
+Separating standard users from administrative accounts provides a cleaner directory structure and makes it easier to apply different policies, permissions, and administrative controls.
+
+![Active Directory Organizational Units](active-directory-ou-structure.png)
+
+#### User Account Management
+
+I created user accounts within Active Directory and placed them into the appropriate Organizational Units based on their intended roles.
+
+For administrative tasks, I created a dedicated administrator account inside the **_ADMINS** OU and added the account to the **Domain Admins** security group.
+
+This allowed administrative privileges to be assigned through group membership rather than relying on the original local administrator account.
+
+![Domain Administrator Account](domain-admin-account.png)
+
+#### Skills Demonstrated
+
+* Active Directory Users and Computers (ADUC)
+* Organizational Unit (OU) management
+* User account creation and administration
+* Security group membership
+* Role-based account organization
+* Domain administrator configuration
+
 
 ### 4. Remote Desktop Configuration
 Coming soon.
