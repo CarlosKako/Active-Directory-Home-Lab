@@ -229,7 +229,68 @@ Domain users were managed centrally through Active Directory Users and Computers
 
 
 ### 5. Group Policy & Account Lockout
-Coming soon.
+### 5. Group Policy & Account Lockout
+
+After configuring Active Directory, I used Group Policy to implement and enforce an account lockout policy across the domain. This provides centralized security management and helps protect domain accounts against repeated failed authentication attempts.
+
+#### Group Policy Management
+
+Using Group Policy Management on DC-1, I edited the **Default Domain Policy** for the `mydomain.com` domain.
+
+The account lockout settings were configured through:
+
+**Computer Configuration → Policies → Windows Settings → Security Settings → Account Policies → Account Lockout Policy**
+
+![Group Policy Management](group-policy-management.png)
+
+#### Account Lockout Policy Configuration
+
+I configured the following account lockout settings:
+
+* **Account lockout duration:** 30 minutes
+* **Account lockout threshold:** 3 invalid logon attempts
+* **Allow Administrator account lockout:** Enabled
+* **Reset account lockout counter after:** 15 minutes
+
+These settings help reduce the risk of repeated password-guessing attempts by temporarily locking accounts after multiple failed logins.
+
+![Account Lockout Policy](account-lockout-policy.png)
+
+#### Applying Group Policy
+
+After configuring the policy on the Domain Controller, I updated Group Policy on the domain-joined Client-1 workstation using:
+
+`gpupdate /force`
+
+Both the Computer Policy and User Policy updates completed successfully.
+
+![Group Policy Update](group-policy-update.png)
+
+#### Policy Verification
+
+To verify that the account lockout policy was successfully applied to Client-1, I used **Resultant Set of Policy (RSoP)**.
+
+RSoP confirmed that Client-1 received the configured settings from the Default Domain Policy:
+
+* 30-minute account lockout duration
+* 3 invalid logon attempts before lockout
+* Administrator account lockout enabled
+* 15-minute lockout counter reset
+
+This confirmed that Group Policy was being centrally applied from the Active Directory domain to the client workstation.
+
+![Account Lockout RSoP](account-lockout-rsop.png)
+
+#### Skills Demonstrated
+
+* Group Policy Management (GPMC)
+* Group Policy Object (GPO) configuration
+* Active Directory security policy administration
+* Account lockout policy configuration
+* Domain security management
+* `gpupdate /force`
+* Resultant Set of Policy (RSoP)
+* Group Policy troubleshooting and verification
 
 ### 6. File Shares & Permissions
 Coming soon.
