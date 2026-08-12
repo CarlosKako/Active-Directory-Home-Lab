@@ -194,7 +194,39 @@ This allowed administrative privileges to be assigned through group membership r
 
 
 ### 4. Remote Desktop Configuration
-Coming soon.
+After joining Client-1 to the Active Directory domain, I configured Remote Desktop access to allow authorized domain users to remotely access the client computer.
+
+#### Client Environment
+
+Client-1 was configured as a Windows 10 Pro workstation and joined to the `mydomain.com` Active Directory domain.
+
+The domain-joined configuration allows users to authenticate using centrally managed Active Directory accounts rather than relying only on local user accounts.
+
+![Client-1 Domain Environment](client1-domain-environment.png)
+
+#### Remote Desktop Access
+
+I enabled Remote Desktop on Client-1 and configured remote access for domain users.
+
+Rather than granting unnecessary administrative privileges, standard domain accounts could be authorized for Remote Desktop access while remaining non-administrative users.
+
+This demonstrates how Active Directory can be used alongside Remote Desktop to provide controlled remote access to domain-joined workstations.
+
+#### Domain User Management
+
+Domain users were managed centrally through Active Directory Users and Computers (ADUC). These accounts could then be assigned appropriate access based on their role and administrative requirements.
+
+![Domain User Account](domain-user-account.png)
+
+#### Skills Demonstrated
+
+* Remote Desktop Protocol (RDP)
+* Windows Remote Desktop configuration
+* Domain user authentication
+* Remote access permissions
+* Active Directory user management
+* Domain-joined workstation administration
+
 
 ### 5. Group Policy & Account Lockout
 Coming soon.
